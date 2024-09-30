@@ -57,19 +57,5 @@ button:hover {
 .message {
   text-align: center;
   margin-top: 15px;
-  color: #777;
-}
-
-.message a {
-  color: #28a745;
-  text-decoration: none;
-}
-
-.message a:hover {
-  text-decoration: underline;
-}
-
-.result-message {
-  text-align: center;
-  color: #333;
+  color: red;
 }

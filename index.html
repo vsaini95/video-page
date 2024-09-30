@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Demo form Page</h1>
     <!--<iframe
       width="760"
       height="515"
@@ -40,57 +39,54 @@
       <input type="text" id="lname" name="lname" /><br /><br />
       <input type="submit" value="Submit" />
     </form>--->
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Fake Login Page</title>
-        <link rel="stylesheet" href="styles.css" />
-      </head>
-      <body>
-        <div class="login-container" id="login-container">
-          <h1>Login</h1>
-          <form class="login-form" id="login-form">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                placeholder="Enter your username"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-            <button type="submit">Login</button>
-            <p class="message">
-              Not registered? <a href="#">Create an account</a>
-            </p>
-          </form>
-          <div class="result-message" id="result-message" style="display: none">
-            <h2>You have logged in!</h2>
-            <p>Welcome back!</p>
-          </div>
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
         </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+        <p class="message" id="message"></p>
+      </form>
+    </div>
 
-        <script>
-          document
-            .getElementById("login-form")
-            .addEventListener("submit", function (event) {
-              event.preventDefault(); // Prevent the form from submitting normally
-              document.getElementById("login-container").style.display = "none"; // Hide the login form
-              document.getElementById("result-message").style.display = "block"; // Show the result message
-            });
-        </script>
-      </body>
-    </html>
+    <script src="script.js">
+      document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Hardcoded credentials for demonstration
+            const validUsername = 'user';
+            const validPassword = 'password';
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const messageElement = document.getElementById('message');
+
+            // Check credentials
+            if (username === validUsername && password === validPassword) {
+                messageElement.style.color = 'green';
+                messageElement.textContent = 'Login successful! Welcome!';
+            } else {
+                messageElement.style.color = 'red';
+                messageElement.textContent = 'Invalid username or password. Please try again.';
+            }
+        });
+    </script>
   </body>
 </html>
